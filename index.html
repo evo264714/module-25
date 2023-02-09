@@ -8,27 +8,79 @@
     <link rel="stylesheet" href="./styles/style.css">
 
     <style>
-        li{
+        .fruits-container li{
             color: blueviolet;
+        }
+        #fruits-title{
+            color: black;
+        }
+        .important-places{
+            color: black;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Welcome to my DOM!</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi voluptate veritatis harum expedita eos itaque ipsam ex reprehenderit earum distinctio?</p>
     </header>
-    <main>
-        <h1>My awesome collection</h1>
+    <main id="main-container">
+        <section>
+            <h1>My awesome collection</h1>
+            <ul>
+                 <li>list 1</li>
+                 <li>list 2</li>
+                 <li>list 3</li>
+             </ul>
+        </section>
+       
+       <section class="fruits-container">
+        <h1 id="fruits-title">Fruits</h1>
         <ul>
-            <li>list 1</li>
-            <li>list 2</li>
-            <li>list 3</li>
+            <li>Apple</li>
+            <li>Mango</li>
+            <li>banana</li>
         </ul>
+       </section>
+       <section id="places-container" class="large-text">
+        <h1 id="places-title">Places I like to visit</h1>
+        <ul id="places-list">
+            <li class="important-places">Sundarban</li>
+            <li class="important-places">Coxs bazar</li>
+            <li class="important-places">Sajek</li>
+        </ul>
+       </section>
     </main>
 
     <script src="./js/dom.js"></script>
+    <script src="./js/append.js"></script>
+    <script src="./js/styleInJs.js"></script>
     <script>
-        console.log('adding js inside the html file');
+        const liCollection = document.getElementsByTagName('li');
+        // console.log(liCollection);
+        for (const li of liCollection){
+            // console.log(li.innerText);
+        }
+        const allHeadings = document.getElementsByTagName('h1');
+        for(const h1 of allHeadings){
+            // console.log(h1.innerText);
+        }
+
+        const fruitsTitle = document.getElementById('fruits-title');
+
+        fruitsTitle.innerText = 'Fruits changed by JS';
+
+        const places = document.getElementsByClassName('important-places');
+        for (const place of places){
+            // console.log(place.innerText);
+        }
+
+        //* Query selector all
+        const someLi = document.querySelectorAll('.fruits-container li');
+        for(const li of someLi){
+            // console.log(li.innerText); 
+        }
+
     </script>
 </body>
 </html>
